@@ -33,7 +33,6 @@ def sentiment(data: dict):
     score = sentiment_model.predict_proba(vectorized)
     label = "POSITIVE" if prediction[0] == 1 else "NEGATIVE"
     confidence = round(max(score[0]) * 100, 2)
-    result = sentiment_model(review)
     return {
         "label": label,
         "score": confidence
