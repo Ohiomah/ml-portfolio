@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 model = joblib.load("xgb.joblib")
-sentiment_model = joblib.load("sentiment-model.joblib")
+sentiment_model = joblib.load("sentiment_model.joblib")
 tfidf = joblib.load("tfidf_vectorizer.joblib")
 
 @app.post("/predict")
