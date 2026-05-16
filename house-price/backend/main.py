@@ -12,8 +12,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from transformers import pipeline
 model = joblib.load("xgb.joblib")
-sentiment_model = joblib.load("../../sentiment-analysis/notebook/transformer_sentiment.joblib")
+sentiment_model = pipeline("sentiment-analysis")
 
 @app.post("/predict")
 def predict(data: dict):
