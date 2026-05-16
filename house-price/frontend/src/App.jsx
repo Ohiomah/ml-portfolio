@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const API_URL = "http://localhost:8000";
+
 function App() {
   const [formData, setFormData] = useState({
     longitude: 0,
@@ -48,7 +50,7 @@ function App() {
     const parsedData = Object.fromEntries(
       Object.entries(formData).map(([key, val]) => [key, parseFloat(val) || 0]),
     );
-    const response = await fetch("http://localhost:8000/predict", {
+    const response = await fetch(`${API_URL}/predict`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +67,7 @@ function App() {
   };
 
   const handleSentiment = async () => {
-    const response = await fetch("http://localhost:8000/sentiment", {
+    const response = await fetch(`${API_URL}/sentiment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

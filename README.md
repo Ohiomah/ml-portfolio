@@ -51,6 +51,20 @@ npm run dev
 
 Then open http://localhost:5173
 
+## Deployment Notes
+
+- The deployed version uses Logistic Regression for sentiment analysis (89% accuracy) due to free tier memory limits
+- To run the transformer version (99% accuracy) locally:
+  1. Run `sentiment-analysis/notebook/sentiment.ipynb` to regenerate `transformer_sentiment.joblib`
+  2. In `main.py`, replace the joblib loads with:
+
+```python
+     from transformers import pipeline
+     sentiment_model = pipeline("sentiment-analysis")
+```
+
+3. Run `uvicorn main:app --reload` locally
+
 ## Data
 
 - House prices: [California Housing Dataset](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
