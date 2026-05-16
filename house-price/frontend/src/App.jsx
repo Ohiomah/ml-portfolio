@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://ml-portfolio-ryj1.onrender.com";
 
 function App() {
   const [formData, setFormData] = useState({
